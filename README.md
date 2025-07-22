@@ -1,4 +1,3 @@
-# GEANT4-Build-on-Linux
 1. move the two scripts in this repo (build_geant4_linux.sh and uninstall_geant4_linux.sh) to your home directory.
 
 2. open .bashrc file in your home directory and comment out any Geant4  related lines.
