@@ -5,10 +5,10 @@
 
 now excute the build/uninstall script:
 
-<chmod +x file_name.sh>
+>chmod +x file_name.sh
 
 finally run the build/uninstall script:
 
-<./file_name.sh>
+>./file_name.sh
 
 Discard of this README.md
