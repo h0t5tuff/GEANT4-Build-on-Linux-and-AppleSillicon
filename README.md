@@ -1,2 +1,14 @@
 # GEANT4-Build-on-Linux
-In this guide, I walk through building Geant4 from source on a Linux system with full X11 and Qt support. It includes prerequisite package installation, common pitfalls during configuration, and how I resolved them. After this build, OpenGL visualization, Qt GUIs, and GDML parsing work correctly with multithreading enabled.
+1. move the two scripts in this repo (build_geant4_linux.sh and uninstall_geant4_linux.sh) to your home directory.
+
+2. open .bashrc file in your home directory and comment out any Geant4  related lines.
+
+now excute the build/uninstall script:
+
+<chmod +x file_name.sh>
+
+finally run the build/uninstall script:
+
+<./file_name.sh>
+
+Discard of this README.md
