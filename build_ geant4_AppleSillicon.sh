@@ -3,13 +3,18 @@
 set -euo pipefail
 
 echo "📦 Installing Homebrew dependencies..."
-brew install cmake git qt@5 glew ftgl expat xerces-c \
-  freetype libpng jpeg libtiff gsl fftw libx11 libxmu libxi \
-  open-mpi clhep xquartz
+brew install python wget git make xerces-c
+brew install cmake ninja pkgconf
+brew install xquartz qt@5 libx11
+brew install cfitsio clhep davix expat fftw freetype ftgl gcc giflib gl2ps glew \
+             graphviz gsl jpeg jpeg-turbo libpng libtiff libxi libxmu lz4 mariadb-connector-c \
+             nlohmann-json numpy openblas open-mpi openssl pcre pcre2 python sqlite \
+             tbb xrootd xxhash xz zstd
+# Update and cleanup
+brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor
 
 echo "🧼 Cleaning up potential Qt6 conflicts..."
 sudo rm -rf /usr/local/include/Qt*
-
 echo "🔗 Forcing link to Homebrew Qt5..."
 brew unlink qt || true
 brew unlink qt@5 || true
@@ -35,10 +40,8 @@ cmake ../src \
   -DGEANT4_INSTALL_DATA=ON \
   -DGEANT4_USE_SYSTEM_CLHEP=ON \
   -DQt5_DIR="$(brew --prefix qt@5)/lib/cmake/Qt5"
-
 echo "🛠️ Building Geant4 using $(sysctl -n hw.ncpu) threads..."
 make -j"$(sysctl -n hw.ncpu)"
-
 echo "📥 Installing to ~/geant4/install..."
 make install
 
