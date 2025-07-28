@@ -37,15 +37,15 @@ on mac
 >  -DGeant4_DIR="$HOME/geant4/install/lib/cmake/Geant4" \
 >  -DCMAKE_PREFIX_PATH="$(brew --prefix root):$HOME/geant4/install/lib/cmake/Geant4"
 
+>// if rebuilding: make clean
+>make -j$(sysctl -n hw.ncpu)
+
 on linux
 
 >  -DGeant4_DIR=/home/bacon/geant4/geant4_install/lib/cmake/Geant4 \
 >  -DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.02;$HOME/geant4/install/lib/Geant4-11.3.1/cmake" \
 
 >// if rebuilding: make clean
-
->make -j$(sysctl -n hw.ncpu)
-
 >make -j$(nproc)
 
 Check what was enabled during build
