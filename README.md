@@ -38,6 +38,7 @@ on mac
 >  -DCMAKE_PREFIX_PATH="$(brew --prefix root):$HOME/geant4/install/lib/cmake/Geant4"
 
 >// if rebuilding: make clean
+>
 >make -j$(sysctl -n hw.ncpu)
 
 on linux
@@ -46,6 +47,7 @@ on linux
 >  -DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.02;$HOME/geant4/install/lib/Geant4-11.3.1/cmake" \
 
 >// if rebuilding: make clean
+>
 >make -j$(nproc)
 
 Check what was enabled during build
