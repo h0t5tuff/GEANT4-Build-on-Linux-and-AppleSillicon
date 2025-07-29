@@ -29,23 +29,23 @@ Copy an example from src to my geant4 folder
 Build
 >mkdir build && cd build
 
->cmake .. \
->  -DCMAKE_BUILD_TYPE=Release \
-
 on mac
 
+>cmake .. \
+>  -DCMAKE_BUILD_TYPE=Release \
 >  -DGeant4_DIR="$HOME/geant4/install/lib/cmake/Geant4" \
 >  -DCMAKE_PREFIX_PATH="$(brew --prefix root):$HOME/geant4/install/lib/cmake/Geant4"
-
+>
 >// if rebuilding: make clean
 >
 >make -j$(sysctl -n hw.ncpu)
 
 on linux
 
+>cmake .. \
+>  -DCMAKE_BUILD_TYPE=Release \
 >  -DGeant4_DIR=/home/bacon/geant4/geant4_install/lib/cmake/Geant4 \
->  -DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.02;$HOME/geant4/install/lib/Geant4-11.3.1/cmake" \
-
+>  -DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.02;/home/bacon/geant4/geant4_install/lib/Geant4-11.3.1/cmake" \
 >// if rebuilding: make clean
 >
 >make -j$(nproc)
