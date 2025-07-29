@@ -1,6 +1,6 @@
 1. move the two scripts in this repo (build_geant4_linux.sh and uninstall_geant4_linux.sh) to your home directory.
 
-2. open .bashrc file in your home directory and comment out any Geant4  related lines.
+2. open .zshrc/.bashrc file in your home directory and comment out any Geant4 related lines.
 
 3. now excute the build/uninstall script:
 
@@ -26,8 +26,11 @@
 ## Build an example
 
 Copy an example from src to my geant4 folder
->cp -R /Users/tensor/geant4/src/examples/basic/B1 ~/geant4/B1_Tensor
 
+>cd geant4
+>
+>cp -R /Users/tensor/geant4/src/examples/basic/B1 ~/geant4/B1_Tensor
+>
 >cd ~/geant4examples/B1_tensor
 
 Build
@@ -36,7 +39,7 @@ Build
 
 on mac
 
->//rm -rf * // if you wanna rebuild
+>// rm -rf * // if you wanna rebuild
 >
 >// rm -rf CMakeCache.txt CMakeFiles
 >
@@ -45,7 +48,7 @@ on mac
   >-DGeant4_DIR="$HOME/geant4/install/lib/cmake/Geant4" \
   >-DCMAKE_PREFIX_PATH="$(brew --prefix root):$HOME/geant4/install/lib/cmake/Geant4"
 >
->//make clean
+>// make clean //if you wanna remake
 >
 >make -j$(sysctl -n hw.ncpu)
 
@@ -54,7 +57,7 @@ on linux
 >cmake .. \
   >-DCMAKE_BUILD_TYPE=Release \
   >-DGeant4_DIR=/home/bacon/geant4/geant4_install/lib/cmake/Geant4 \
-  >-DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.02;/home/bacon/geant4/geant4_install/lib/Geant4-11.3.1/cmake" \
+  >-DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.01;/home/bacon/geant4/geant4_install/lib/Geant4-11.3.1/cmake" \
 >
 >make -j$(nproc)
 
