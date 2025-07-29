@@ -2,19 +2,22 @@
 
 set -euo pipefail
 
-echo "📦 Installing Homebrew dependencies..."
+echo "🍺 Installing Homebrew dependencies..."
 echo "base tools"
 brew install python wget git make xerces-c
 echo "Build utilities"
 brew install cmake ninja pkgconf
-echo "X11/Qt requirements"
+echo "graphics requirements"
 brew install qt@5 libx11
 brew install --cask xquartz
-echo "X11/Qt requirements"
-brew install cfitsio clhep davix expat fftw freetype ftgl gcc giflib gl2ps glew \
-             graphviz gsl jpeg jpeg-turbo libpng libtiff libxi libxmu lz4 mariadb-connector-c \
-             nlohmann-json numpy openblas open-mpi openssl pcre pcre2 sqlite \
+echo "root stuff"
+brew install cfitsio davix fftw freetype ftgl gcc giflib gl2ps glew \
+             graphviz gsl jpeg-turbo libpng libtiff lz4 mariadb-connector-c \
+             nlohmann-json numpy openblas openssl pcre pcre2 python sqlite \
              tbb xrootd xxhash xz zstd
+echo "geant4 stuff"
+brew install clhep expat jpeg libxi libxmu open-mpi
+
 # Update and cleanup
 brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor
 
@@ -24,6 +27,17 @@ echo "🔗 Forcing link to Homebrew Qt5..."
 brew unlink qt || true
 brew unlink qt@5 || true
 brew link --force qt@5
+
+
+
+
+
+
+
+
+
+
+
 
 echo "📁 Creating Geant4 directory tree..."
 mkdir -p ~/geant4/src ~/geant4/build ~/geant4/install
@@ -50,13 +64,24 @@ make -j"$(sysctl -n hw.ncpu)"
 echo "📥 Installing to ~/geant4/install..."
 make install
 
+
+
+
+
+
+
+
+
+
+
+
 # Add environment block to ~/.zshrc if not already present
 ZSHRC=~/.zshrc
 QT_BLOCK_START="# QT@5"
 if ! grep -q "$QT_BLOCK_START" "$ZSHRC"; then
   echo "🔧 Adding Qt@5 environment settings to $ZSHRC"
   cat <<EOF >> "$ZSHRC"
-
+  
 # QT@5
 export PATH="/opt/homebrew/opt/qt@5/bin:\$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/qt@5/lib \$LDFLAGS"
