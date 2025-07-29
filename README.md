@@ -31,12 +31,15 @@ Build
 
 on mac
 
->cmake .. \
->  -DCMAKE_BUILD_TYPE=Release \
->  -DGeant4_DIR="$HOME/geant4/install/lib/cmake/Geant4" \
->  -DCMAKE_PREFIX_PATH="$(brew --prefix root):$HOME/geant4/install/lib/cmake/Geant4"
+>//rm -rf *
 >
->// if rebuilding: make clean
+>// rm -rf CMakeCache.txt CMakeFiles
+>cmake .. \
+  >-DCMAKE_BUILD_TYPE=Release \
+  >-DGeant4_DIR="$HOME/geant4/install/lib/cmake/Geant4" \
+  >-DCMAKE_PREFIX_PATH="$(brew --prefix root):$HOME/geant4/install/lib/cmake/Geant4"
+>
+>//make clean
 >
 >make -j$(sysctl -n hw.ncpu)
 
