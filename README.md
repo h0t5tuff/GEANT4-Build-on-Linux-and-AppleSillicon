@@ -39,9 +39,7 @@ Build
 
 on mac
 
->// rm -rf * // if you wanna rebuild
->
->// rm -rf CMakeCache.txt CMakeFiles
+>// rm -rf build && mkdir build && cd build // if you wanna rebuild
 >
 >cmake .. \
   >-DCMAKE_BUILD_TYPE=Release \
