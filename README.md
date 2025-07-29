@@ -19,10 +19,14 @@
 
 
 
+
+
+
+
 ## Build an example
 
 Copy an example from src to my geant4 folder
->cp -r /home/bacon/geant4/geant4_install/share/Geant4/examples/basic/B1 ~/geant4/B1_tensor/
+>cp -R /Users/tensor/geant4/src/examples/basic/B1 ~/geant4/B1_Tensor
 
 >cd ~/geant4examples/B1_tensor
 
@@ -48,10 +52,9 @@ on mac
 on linux
 
 >cmake .. \
->  -DCMAKE_BUILD_TYPE=Release \
->  -DGeant4_DIR=/home/bacon/geant4/geant4_install/lib/cmake/Geant4 \
->  -DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.02;/home/bacon/geant4/geant4_install/lib/Geant4-11.3.1/cmake" \
->// if rebuilding: make clean
+  >-DCMAKE_BUILD_TYPE=Release \
+  >-DGeant4_DIR=/home/bacon/geant4/geant4_install/lib/cmake/Geant4 \
+  >-DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.02;/home/bacon/geant4/geant4_install/lib/Geant4-11.3.1/cmake" \
 >
 >make -j$(nproc)
 
