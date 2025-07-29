@@ -41,10 +41,7 @@ on mac
 
 >// rm -rf build && mkdir build && cd build // if you wanna rebuild
 >
->cmake .. \
-  >-DCMAKE_BUILD_TYPE=Release \
-  >-DGeant4_DIR="$HOME/geant4/install/lib/cmake/Geant4" \
-  >-DCMAKE_PREFIX_PATH="$(brew --prefix root):$HOME/geant4/install/lib/cmake/Geant4"
+>cmake .. -DCMAKE_BUILD_TYPE=Release -DGeant4_DIR="$HOME/geant4/install/lib/cmake/Geant4" -DCMAKE_PREFIX_PATH="$(brew --prefix root):$HOME/geant4/install/lib/cmake/Geant4"
 >
 >// make clean //if you wanna remake
 >
@@ -52,10 +49,7 @@ on mac
 
 on linux
 
->cmake .. \
-  >-DCMAKE_BUILD_TYPE=Release \
-  >-DGeant4_DIR=/home/bacon/geant4/geant4_install/lib/cmake/Geant4 \
-  >-DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.01;/home/bacon/geant4/geant4_install/lib/Geant4-11.3.1/cmake" \
+>cmake .. -DCMAKE_BUILD_TYPE=Release -DGeant4_DIR=/home/bacon/geant4/geant4_install/lib/cmake/Geant4 -DCMAKE_PREFIX_PATH="/usr/local/Cellar/root/6.36.01;/home/bacon/geant4/geant4_install/lib/Geant4-11.3.1/cmake"
 >
 >make -j$(nproc)
 
