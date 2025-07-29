@@ -3,12 +3,17 @@
 set -euo pipefail
 
 echo "📦 Installing Homebrew dependencies..."
+echo "base tools"
 brew install python wget git make xerces-c
+echo "Build utilities"
 brew install cmake ninja pkgconf
-brew install xquartz qt@5 libx11
+echo "X11/Qt requirements"
+brew install qt@5 libx11
+brew install --cask xquartz
+echo "X11/Qt requirements"
 brew install cfitsio clhep davix expat fftw freetype ftgl gcc giflib gl2ps glew \
              graphviz gsl jpeg jpeg-turbo libpng libtiff libxi libxmu lz4 mariadb-connector-c \
-             nlohmann-json numpy openblas open-mpi openssl pcre pcre2 python sqlite \
+             nlohmann-json numpy openblas open-mpi openssl pcre pcre2 sqlite \
              tbb xrootd xxhash xz zstd
 # Update and cleanup
 brew update && brew upgrade && brew autoremove && brew cleanup && brew doctor
