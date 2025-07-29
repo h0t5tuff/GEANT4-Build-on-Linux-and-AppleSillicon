@@ -27,13 +27,15 @@ Copy an example from src to my geant4 folder
 >cd ~/geant4examples/B1_tensor
 
 Build
+
 >mkdir build && cd build
 
 on mac
 
->//rm -rf *
+>//rm -rf * // if you wanna rebuild
 >
 >// rm -rf CMakeCache.txt CMakeFiles
+>
 >cmake .. \
   >-DCMAKE_BUILD_TYPE=Release \
   >-DGeant4_DIR="$HOME/geant4/install/lib/cmake/Geant4" \
